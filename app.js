@@ -12,8 +12,9 @@ const DEFAULT_CARDS = [
     }
 ];
 
-// State
-let cards = JSON.parse(localStorage.getItem(STORAGE_KEY)) || DEFAULT_CARDS;
+// State - use defaults if localStorage is empty or missing
+const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
+let cards = (stored && stored.length > 0) ? stored : DEFAULT_CARDS;
 let editingCard = null;
 
 // DOM Elements
