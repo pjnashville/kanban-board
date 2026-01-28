@@ -1,8 +1,19 @@
 // Kanban Board App
 const STORAGE_KEY = 'kanban-cards';
 
+// Default cards (loaded if localStorage is empty)
+const DEFAULT_CARDS = [
+    {
+        id: 'card-addigy-1',
+        title: 'Fix Addigy ADE tokens',
+        description: 'Apple Business Manager connectivity disabled. Affected policies: SEandI, VLC, DGN, Robin Rains Interiors. See: https://support.addigy.com/support/solutions/articles/8000081475',
+        status: 'todo',
+        createdAt: new Date().toISOString()
+    }
+];
+
 // State
-let cards = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+let cards = JSON.parse(localStorage.getItem(STORAGE_KEY)) || DEFAULT_CARDS;
 let editingCard = null;
 
 // DOM Elements
