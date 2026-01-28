@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📋 Kanban Board</h1>
+        <button id="clearAll" title="Clear all cards">🗑️ Clear All</button>
+    </header>
+    
+    <main class="board">
+        <div class="column" data-status="todo">
+            <div class="column-header">
+                <h2>📝 To Do</h2>
+                <span class="count">0</span>
+            </div>
+            <div class="cards" data-status="todo"></div>
+            <button class="add-card" data-status="todo">+ Add Card</button>
+        </div>
+        
+        <div class="column" data-status="doing">
+            <div class="column-header">
+                <h2>🔨 In Progress</h2>
+                <span class="count">0</span>
+            </div>
+            <div class="cards" data-status="doing"></div>
+            <button class="add-card" data-status="doing">+ Add Card</button>
+        </div>
+        
+        <div class="column" data-status="done">
+            <div class="column-header">
+                <h2>✅ Done</h2>
+                <span class="count">0</span>
+            </div>
+            <div class="cards" data-status="done"></div>
+            <button class="add-card" data-status="done">+ Add Card</button>
+        </div>
+    </main>
+
+    <!-- Card Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modalTitle">Add Card</h3>
+            <input type="text" id="cardTitle" placeholder="Card title..." maxlength="100">
+            <textarea id="cardDesc" placeholder="Description (optional)..." maxlength="500"></textarea>
+            <div class="modal-buttons">
+                <button id="saveCard" class="btn-primary">Save</button>
+                <button id="deleteCard" class="btn-danger hidden">Delete</button>
+                <button id="cancelCard" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
